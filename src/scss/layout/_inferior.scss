@@ -15,6 +15,11 @@
     }
 }
 
+.informacion-meta {
+    span {
+        color: $amarillo;
+    }
+}
 
 .texto-entrada {
     a {
@@ -38,8 +43,6 @@
             margin-top: 1rem;
         }
     }
-    span {
-        color: $amarillo;
-    }
+    
 }
 
