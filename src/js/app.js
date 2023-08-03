@@ -1,4 +1,4 @@
-document.addEventListener('COMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
 
     addEventListener();
 });
@@ -6,9 +6,7 @@ document.addEventListener('COMContentLoaded', function() {
 function addEventListener() {
     const mobileMenu = document.querySelector('.mobile-menu');
 
-    mobileMenu.addEventListener('click',function() {
-
-    })
+    mobileMenu.addEventListener('click', navegacionResponsive)
 }
 
 function navegacionResponsive() {
