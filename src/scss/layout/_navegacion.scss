@@ -1,3 +1,27 @@
+/** Mode drak**/
+.derecha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+        align-items: flex-end;
+    }
+    .dark-mode-boton {
+        width: 3rem;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        filter: invert(100%); // from black to white
+        &:hover {
+            cursor: pointer;
+        }
+
+        @include tablet {
+            margin-top: 0;
+        }
+    }
+}
+// NAV
 .barra {
     display: flex;
     flex-direction: column;
@@ -6,15 +30,21 @@
     @include tablet {
         flex-direction: row;
         justify-content: space-between;
+        align-items: flex-end;  // alineo el logo igual a los links
     }
 }
 .navegacion {
 
-    display: none;
+    // display: none;
+    visibility: hidden;  // solo para animar el modo hamburguesa y poniendolo en .motrar 
+    opacity: 0;
+    transition: visibility .3s ease-in-out, opacity .5s linear;
 
     @include tablet {
         display: flex;
         align-items: center;
+        opacity: 1;
+        visibility: visible;
     }
     
     a {
@@ -48,4 +78,14 @@
         width: 5rem;
         ;
     }
+}
+.mostrar { //show links and hide them in the hamburger
+    // display: flex;
+    // flex-direction: column;
+
+    // @include tablet {
+    //     flex-direction: row;
+    // } //instead of
+    visibility: visible;
+    opacity: 1;
 }
