@@ -3,7 +3,11 @@
     background-color: $grisOscuro;
     margin-bottom: 0;
     .contenedor-footer {
-        padding-top: 5rem / 2;
+        padding-top: 3rem;
+    }
+    .navegacion {
+        visibility: visible;
+        opacity: 1;
     }
     .copyright {
         color: $blanco;
