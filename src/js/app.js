@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
 //funcion de darkMode
 function darkMode() {
     const botonDarkMode = document.querySelector('.dark-mode-boton');
-    botonDarkMode.addEventListener(click, function () {
-
+    botonDarkMode.addEventListener('click', function () {
+        document.body.classList.toggle('dark-mode'); //agrega clase si no la tiene y lo contrario como en el if de abajo
     });
 }
 
