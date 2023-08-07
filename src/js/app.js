@@ -7,6 +7,16 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 //funcion de darkMode
 function darkMode() {
+    const prefiereDarkMode = window.matchMedia( '(prefers-color-scheme: dark)' ); // si el usuario tiene su tema amarillo en su equipo
+
+    // console.groupCollapsed(prefiereDarkMode);
+
+    if(prefiereDarkMode.matches) {
+        document.body.classList.add('dark-mode');
+    } else {
+        document.body.classList.remove('dark-mode');
+    }
+
     const botonDarkMode = document.querySelector('.dark-mode-boton');
     botonDarkMode.addEventListener('click', function () {
         document.body.classList.toggle('dark-mode'); //agrega clase si no la tiene y lo contrario como en el if de abajo

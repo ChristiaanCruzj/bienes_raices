@@ -38,7 +38,8 @@
     // display: none;
     visibility: hidden;  // solo para animar el modo hamburguesa y poniendolo en .motrar 
     opacity: 0;
-    transition: visibility .3s ease-in-out, opacity .5s linear;
+    height: 0; //for the darkmode and put in .motrar (more down) height: auto; and height in animation (next line)
+    transition: visibility .3s ease-in-out, opacity .5s linear, height .9s linear;
 
     @include tablet {
         display: flex;
@@ -88,4 +89,5 @@
     // } //instead of
     visibility: visible;
     opacity: 1;
+    height: auto;
 }
