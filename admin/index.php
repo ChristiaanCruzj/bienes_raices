@@ -18,7 +18,9 @@ $resultadoConsulta = mysqli_query($db, $query);
     <main class="contenedor seccion">
         <h1>Administrador de Bines Raices</h1>
         <?php if( intval($resultado) === 1): ?>
-            <p class="alerta exito">Anuncio creado correctamente</p>
+            <p class="alerta exito">Anuncio Creado Correctamente</p>
+        <?php elseif( intval($resultado) === 2): ?> <!-- white this show -->
+            <p class="alerta exito">Anuncio Actualizado correctamente</p>
         <?php endif ?>    
 
         <a href="/admin/propiedades/crear.php" class="boton boton-verde">Nueva Propiedad</a>

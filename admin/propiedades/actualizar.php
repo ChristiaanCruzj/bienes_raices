@@ -58,7 +58,7 @@
         $wc = mysqli_real_escape_string( $db, $_POST['wc']);
         $estacionamiento = mysqli_real_escape_string( $db, $_POST['estacionamiento']);
         $vendedorId = mysqli_real_escape_string( $db, $_POST['vendedor']);
-        $creado = date('Y/m-/d');
+        $creado = date('Y/m/d');
 
         // Asignar files  hacea una vaiable
         $imagen = $_FILES['imagen'];
@@ -90,7 +90,7 @@
         // if(!$imagen['name'] || $imagen['error']) { //la imagen deja de ser obligatoria aqui en actualizar
         //     $errores[] = 'La Imagen es Obligatoria';
         // }
-        // Validar por tamaño (1mb máximo)
+        // Tamaño de la imagen "Validar por tamaño (1mb máximo)"
         $medida = 1000 * 1000; //convertir bytes a kilobytes y aqui en Actualizar si es obligatorio el tamaño de la imagen
         if($imagen['size'] > $medida) {
             $errores[] ='La Imagen es muy pesada';
@@ -104,25 +104,36 @@
         // Revisar que el arreglo de errores este vacío 
         if(empty($errores)){
             
-            /** SUBIDA DE ARCHIVOS **/
-            //crear carpeta
+            //crear carpeta imagenes
+            $carpetaImagenes = '../../imagenes/'; //cuando no marca errores crea esta carpeta
+            if(!is_dir($carpetaImagenes)){  //sino existe la carpeta imagenes colocala
+                mkdir($carpetaImagenes);   //crea carpeta
+            }
 
-            // $carpetaImagenes = '../../imagenes/'; //cuando no marca errores crea esta carpeta
-            // if(!is_dir($carpetaImagenes)){  //sino existe la carpeta imagenes colocala
-            //     mkdir($carpetaImagenes);   //crea carpeta
-            // }
-            // // Generar un nombre unico para las imagenes que subiran
-            // $nombreImagen = md5( uniqid( rand(), true) ) . ".jpg"; //es parecido a encryptar y le puse un unico ID para cuando se guarden las imagenes
-            // var_dump($nombreImagen);
-            // //Subir imagen
-            // move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen ); //Lo muevo y lo coloxo graciad al tmp_name que aparece when I show _FILES ;)
+            $nombreImagen = '';
+            
+            /** SUBIDA DE ARCHIVOS **/
+            if($imagen['name']) {
+                echo"Si hay una imagen";
+                //Eliminar imagen si ya exite una (para eliminar archivo unlink() )
+                unlink($carpetaImagenes . $propiedad['imagen']); //se elimina imagen si cargo una nueva cuando actualizo
+                
+                // Generar un nombre unico para las imagenes que subiran
+                $nombreImagen = md5( uniqid( rand(), true) ) . ".jpg"; //es parecido a encryptar y le puse un unico ID para cuando se guarden las imagenes
+                // var_dump($nombreImagen);
+                //Subir imagen (para crear archivo se utiliza move_uploaded_file() )
+                move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen ); //Lo muevo y lo coloxo graciad al tmp_name que aparece when I show _FILES ;)
+            } else {
+                $nombreImagen = $propiedad['imagen']; //Sino existe una nueva imagen mantiene la misma
+            }
+
             
 
             // Insertar en la Base de datos ( no es necesario poner muchos if para ir comprobando cada uno de los cambios )
-            $query = "UPDATE propiedades SET titulo = '${titulo}', precio = '${precio}', descripcion = '${descripcion}', habitaciones = ${habitaciones}, wc = ${wc}, estacionamiento = ${estacionamiento}, vendedorId = ${vendedorId} WHERE id = ${id} ";
+            $query = "UPDATE propiedades SET titulo = '${titulo}', precio = '${precio}', imagen = '${nombreImagen}', descripcion = '${descripcion}', habitaciones = ${habitaciones}, wc = ${wc}, estacionamiento = ${estacionamiento}, vendedorId = ${vendedorId} WHERE id = ${id} ";
     
-            echo $query;  
-            exit;
+            // echo $query;  //only I use this when I want to check out my BD
+            // exit;
 
             $resultado = mysqli_query($db, $query);    
             if($resultado) {
