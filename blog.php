@@ -14,7 +14,7 @@
                 </picture>
             </div>
             <div class="texto-entrada">
-                <a href="entrada.html">
+                <a href="entrada.php">
                     <h4>Terraza en el techo de tu casa</h4>
                     <p class="informacion-meta">Escrito el: <span>05/08/2023</span> por: <span>Admin</span> </p>
 
@@ -33,7 +33,7 @@
                 </picture>
             </div>
             <div class="texto-entrada">
-                <a href="entrada.html">
+                <a href="entrada.php">
                     <h4>Guía para la decoración de tu hogar</h4>
                     <p class="informacion-meta">Escrito el: <span>05/08/2023</span> por: <span>Admin</span> </p>
 
@@ -52,7 +52,7 @@
                 </picture>
             </div>
             <div class="texto-entrada">
-                <a href="entrada.html">
+                <a href="entrada.php">
                     <h4>Terraza en el techo de tu casa</h4>
                     <p class="informacion-meta">Escrito el: <span>05/08/2023</span> por: <span>Admin</span> </p>
 
@@ -71,7 +71,7 @@
                 </picture>
             </div>
             <div class="texto-entrada">
-                <a href="entrada.html">
+                <a href="entrada.php">
                     <h4>Guía para la decoración de tu hogar</h4>
                     <p class="informacion-meta">Escrito el: <span>05/08/2023</span> por: <span>Admin</span> </p>
 

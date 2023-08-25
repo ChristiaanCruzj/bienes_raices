@@ -31,7 +31,7 @@
                 </div>
             </div><!--.barra-->
 
-            <?php if($inicio) { ?>
+            <?php if($inicio) {  //o como ternario echo $inicio ? "<h1>Venta de Casas y Departamentos Exclisivos de Lujo</h1>" : '';  ?> 
                 <h1>Venta de Casas y Departamentos Exclisivos de Lujo</h1>
             <?php } ?>
         </div>
