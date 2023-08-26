@@ -13,7 +13,7 @@
     }
 
     //Base de Datos
-    require '../../includes/config/databade.php';
+    require '../../includes/config/database.php';
     $db = conectarDB();
     //Obtener los datos de la propiedad 
     $consulta = "SELECT * FROM propiedades WHERE id = ${id}";

@@ -11,7 +11,7 @@
 
 
     // Importar
-    require 'includes/config/databade.php'; //no lo puse con el dir por que estoy en la ruta del archivo
+    require 'includes/config/database.php'; //no lo puse con el dir por que estoy en la ruta del archivo
     $db = conectarDB();
     // Consultar
     $query = "SELECT * FROM propiedades WHERE id = ${id}"; //limito a solo 3 anuncios y la variable viene desde el index

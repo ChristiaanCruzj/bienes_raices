@@ -5,7 +5,7 @@
     // echo"</pre>";
 
     // Importar la conexión
-    require '../includes/config/databade.php';
+    require '../includes/config/database.php';
     $db = conectarDB();
     // Esciribiir el Query
     $query = "SELECT * FROM propiedades";

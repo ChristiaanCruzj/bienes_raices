@@ -1,6 +1,6 @@
 <?php
     // Importar
-    require __DIR__ . '/../config/databade.php';
+    require __DIR__ . '/../config/database.php';
     $db = conectarDB();
     // Consultar
     $query = "SELECT * FROM propiedades LIMIT ${limite}"; //limito a solo 3 anuncios y la variable viene desde el index

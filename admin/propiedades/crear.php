@@ -5,7 +5,7 @@
 // error_reporting(E_ALL);
 
     //Base de Datos
-    require '../../includes/config/databade.php';
+    require '../../includes/config/database.php';
     $db = conectarDB();
 
     // Consultar para obtener los vendedores
