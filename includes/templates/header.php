@@ -1,3 +1,14 @@
+<?php 
+
+    if(!isset($_SESSION)) {//si ya esta iniciada la session no muestra que inicio otra session
+        session_start(); // es la sesion de usuario autenticado
+    }
+
+    $auth = $_SESSION['login'] ?? false;
+    var_dump($auth);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +37,9 @@
                         <a href="anuncios.php">Anuncios</a>
                         <a href="blog.php">Blog</a>
                         <a href="contacto.php">Contacto</a>
+                        <?php if($auth) : ?>
+                            <a href="cerrar-session.php">Cerrar Sessión</a>
+                        <?php endif; ?>
                     </nav>
                     
                 </div>
